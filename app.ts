@@ -1,5 +1,6 @@
 import { serve } from 'https://deno.land/std/http/server.ts';
 import { acceptWebSocket, acceptable } from 'https://deno.land/std/ws/mod.ts';
+import { chatConnection } from './ws/chatroom.ts';
 
 // setup server
 const server = serve({ port: 3000 });
@@ -22,7 +23,7 @@ for await (const req of server) {
         bufReader: req.r,
         bufWriter: req.w,
         headers: req.headers,
-      }).then();
+      }).then(chatConnection);
     }
   }
 }
