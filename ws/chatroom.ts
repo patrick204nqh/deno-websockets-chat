@@ -10,7 +10,7 @@ const chatConnection = async (ws: WebSocket) => {
   const uid = v4.generate();
   sockets.set(uid, ws);
 
-  console.log(sockets);
+  // console.log(sockets);
 };
 
 export { chatConnection };
